@@ -22,6 +22,14 @@ class App extends Component {
         name:"OOppoarr",
         price: 18000000,
         image: "https://cdn.tgdd.vn/Products/Images/42/161554/sieu-pham-galaxy-s-black-400x460.png",
+        status: true
+    
+      },
+      {
+        id: 3,
+        name:"AApple",
+        price: 28000000,
+        image: "https://cdn.tgdd.vn/Products/Images/42/161554/sieu-pham-galaxy-s-black-400x460.png",
         status: false
     
       },
@@ -30,8 +38,9 @@ class App extends Component {
     }
   }
 
-  onsetState=()=> {
-    if(this.state.isActive === true){
+  onsetState =()=> {
+    if(this.state.isActive === true)
+    {
       this.setState({
         isActive : false
       });
@@ -40,14 +49,14 @@ class App extends Component {
     {
       this.setState({
         isActive : true
-      }); 
-    }   
-
+      });
+    }
   }
   render() { 
     let element = this.state.products.map((products, index) => {
       let result = '';
       if(this.state.isActive === true){
+       
       result = <tr key={products.id}>
       <td>{products.id}</td>
       <td>{products.name}</td>
@@ -56,10 +65,31 @@ class App extends Component {
       }
       
       
-        return result
+       
+    
+    return result
+    });
+    // let element = this.state.products.map((products, index) => {
+    //   let result = '';
+    //   if (this.state.isActive === true)
+    //   {
+
+      
+    //   if(products.status){
+        
+    //   result = <tr key={products.id}>
+    //   <td>{products.id}</td>
+    //   <td>{products.name}</td>
+    //   <td className="table-success">{products.price} VNĐ</td>
+    // </tr>
+    //   }
+    // }
+      
+      
+    //     return result
       
    
-    });
+    // });
     return (
       <div className="Appp">
             <div className="container-fluid">
@@ -80,15 +110,15 @@ class App extends Component {
                       
                     </thead>
                     <tbody>
-                    {/* <tr>
+                     {/* <tr>
                       <td>1</td>
                       <td>Apple</td>
                       <td className="table-success">3000</td>
                     </tr> */}
-                    {element}
+                    { element }
                     </tbody>
                 </table>
-                  <button type="button" className="btn btn-warning" onClick={this.onsetState} >Active:  { this.state.isActive === true ? 'OK' : 'False'}</button>
+                  <button type="button" className="btn btn-warning" onClick={this.onsetState} >Active:  {this.state.isActive === true ? 'OK' : 'False'}</button>
             </div>
             </div>
       </div>
