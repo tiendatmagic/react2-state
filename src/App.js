@@ -4,10 +4,10 @@ import './App.css';
 
 class App extends Component {
   //state = {  }
-  constructor(props)
-  {
+
+  constructor(props){
     super(props);
-    this.state= {
+    this.state = {
       products : [
         {
         id: 1,
@@ -36,10 +36,12 @@ class App extends Component {
     ],
     isActive :true,
     }
+    
   }
 
-  onsetState =()=> {
-    if(this.state.isActive === true)
+  kichhoat =()=> {
+   // alert("OK I'm fine");
+   if(this.state.isActive === true)
     {
       this.setState({
         isActive : false
@@ -51,11 +53,13 @@ class App extends Component {
         isActive : true
       });
     }
+
   }
   render() { 
-    let element = this.state.products.map((products, index) => {
+
+    var element = this.state.products.map((products, index) => {
       let result = '';
-      if(this.state.isActive === true){
+       if(this.state.isActive === true){
        
       result = <tr key={products.id}>
       <td>{products.id}</td>
@@ -63,12 +67,13 @@ class App extends Component {
       <td className="table-success">{products.price} VNĐ</td>
     </tr>
       }
+ 
+    return result;
+    });
       
       
        
-    
-    return result
-    });
+
     // let element = this.state.products.map((products, index) => {
     //   let result = '';
     //   if (this.state.isActive === true)
@@ -118,7 +123,7 @@ class App extends Component {
                     { element }
                     </tbody>
                 </table>
-                  <button type="button" className="btn btn-warning" onClick={this.onsetState} >Active:  {this.state.isActive === true ? 'OK' : 'False'}</button>
+                  <button className="btn btn-success btn-lg" onClick= { this.kichhoat } >Kích hoạt: { this.state.isActive === true ? 'OK nè' : 'Chưa OK' } </button>
             </div>
             </div>
       </div>
